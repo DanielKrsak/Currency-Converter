@@ -3,6 +3,7 @@
 import axios from "axios";
 import { Montserrat } from "next/font/google";
 import { useEffect, useState } from "react";
+import { toast } from "react-hot-toast";
 
 const API_KEY = "4828c422f2-b257572eb7-ry1pb0";
 const BASE_URL = "https://api.fastforex.io/fetch-one";
@@ -49,6 +50,8 @@ const MainPage = () => {
       toCurrency: convertToCurrency,
     };
     setConversionData((prevData) => [...prevData, conversion]);
+
+    toast.success("Conversion successful!");
 
     setAmount("");
   };

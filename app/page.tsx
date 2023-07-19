@@ -162,35 +162,37 @@ const MainPage = () => {
               </div>
             )}
           </form>
-          <div className="w-full">
-            <h1 className="label-text text-xl text-white">
-              Table of Conversions
-            </h1>
-            <div className="overflow-x-auto">
-              <table className="table">
-                <thead>
-                  <tr>
-                    <th></th>
-                    <th>Before</th>
-                    <th>After</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {conversionData.map((data, idx) => (
-                    <tr key={idx}>
-                      <th>{idx + 1}</th>
-                      <td>
-                        {data.before} {data.fromCurrency}
-                      </td>
-                      <td>
-                        {data.after} {data.toCurrency}
-                      </td>
+          {conversionData.length > 0 && (
+            <div className="w-full">
+              <h1 className="label-text text-xl text-white">
+                Table of Conversions
+              </h1>
+              <div className="overflow-x-auto">
+                <table className="table">
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <th>Before</th>
+                      <th>After</th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody>
+                    {conversionData.map((data, idx) => (
+                      <tr key={idx}>
+                        <th>{idx + 1}</th>
+                        <td>
+                          {data.before} {data.fromCurrency}
+                        </td>
+                        <td>
+                          {data.after} {data.toCurrency}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
     </div>
